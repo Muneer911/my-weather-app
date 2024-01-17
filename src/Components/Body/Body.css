@@ -1,0 +1,35 @@
+.BodyContainer {
+  text-align: center;
+  border-radius: 30px;
+  background: linear-gradient(
+    117deg,
+    rgba(224, 244, 255, 1) 0%,
+    rgba(5, 93, 176, 1) 41%,
+    rgba(10, 73, 141, 1) 60%,
+    rgba(2, 0, 36, 1) 100%
+  );
+  width: 800px;
+  margin: 2em auto;
+}
+.BodyContainer-tampAndImg {
+  display: flex;
+  justify-content: center;
+  gap: 2em;
+}
+h1 .BodyContainer-MainTemp {
+  text-align: center;
+}
+.BodyContainer-Card-Info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.BodyContainer input {
+  width: 400px;
+  height: 40px;
+  border-radius: 10px;
+  padding-left: 50px;
+  margin: 2em 0;
+  border: none;
+}

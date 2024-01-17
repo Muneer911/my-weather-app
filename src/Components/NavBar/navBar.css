@@ -1,0 +1,13 @@
+.navBarContainer {
+  font-size: larger;
+  text-align: center;
+}
+.navBarContainer-TwoLS {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.navBarContainer-TwoLS-Logo h3 {
+  font-size: 48px;
+  margin: 0;
+}
