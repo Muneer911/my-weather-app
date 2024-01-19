@@ -1,8 +1,5 @@
-# React + Vite
+My-weatherz tracker 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+my-weatherz is a simple website still under development that displays the current weather temp based on the city or country name, you can set the unit manually Celsius or Fahrenheit, and you can also track the humidity, wind speed, visibility, and air pressure under the same city name
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
