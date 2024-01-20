@@ -1,14 +1,17 @@
 import { useDebounce } from "../../hooks/useDebounce";
 import { useFetch } from "../../hooks/useFetch";
 import { useField } from "../../hooks/useField";
-import { Rain, Cloud, Search, Search2, Sunny } from "../../index";
+import { Rain, Cloud, Sunny, Clear, Snow, Search, Search2 } from "../../index";
 import "./Body.css";
 
 function Body() {
   const [onChange, val] = useField("");
   const debouncedVal = useDebounce(val);
-  const currentUrl = `https://api.openweathermap.org/data/2.5/weather?q=${debouncedVal}&appid=5fddaf96dc8b6f52eee1222fb88eb9cb&units=metric`;
+  const currentUrl = `https://api.openweathermap.org/data/2.5/weather?q=${debouncedVal}&appid=${
+    import.meta.env.VITE_API_KEY
+  }&units=metric`;
   const [Data, isLoading] = useFetch(currentUrl);
+  const weatherStateChecker = Data.weather?.[0]?.main;
   const WeatherDetails = [
     {
       status: "HUMIDITY",
@@ -56,19 +59,37 @@ function Body() {
             ? Math.trunc(Data?.main?.temp) + "°"
             : "No data available"}{" "}
         </h1>
-        <img src={Data?.weather?.main === "snow" ? Search : Sunny} alt="" />
+        <img
+          src={
+            weatherStateChecker === "Rain"
+              ? Rain
+              : weatherStateChecker === "Clear"
+              ? Clear
+              : weatherStateChecker === "Clouds"
+              ? Cloud
+              : weatherStateChecker === "Sunny"
+              ? Sunny
+              : weatherStateChecker === "Snow"
+              ? Snow
+              : null
+          }
+          alt=""
+        />
       </div>
       <div className="BodyContainer-Card-Info">
-        {WeatherDetails.map((status, seed) => {
+        {WeatherDetails.map((status) => {
           return (
-            <div className="BodyContainer-Card-Info-Template">
-              <p className="BodyContainer-Card-Info-Template-InfoP" key={seed}>
+            <div key={status.key} className="BodyContainer-Card-Info-Template">
+              <p
+                className="BodyContainer-Card-Info-Template-InfoP"
+                key={status.status}
+              >
                 {" "}
                 {status.status}{" "}
               </p>
               <p
                 className="BodyContainer-Card-Info-Template-InfoP"
-                key={status.key}
+                key={status.unit}
               >
                 {" "}
                 {Data?.main?.temp ? status.seed + "  " + status.unit : " "}{" "}
