@@ -8,7 +8,7 @@ function Body() {
   const [onChange, val] = useField("");
   const debouncedVal = useDebounce(val);
   const currentUrl = `https://api.openweathermap.org/data/2.5/weather?q=${debouncedVal}&appid=${
-    process.env.WEATHER_API
+    import.meta.env.VITE_WEATHER_API
   }&units=metric`;
   const [Data, isLoading] = useFetch(currentUrl);
   const weatherStateChecker = Data.weather?.[0]?.main;
